@@ -1,34 +1,34 @@
 #title {
-    text-align: center;
+  text-align: center;
 }
 
 #cor1 {
-    background-color: black;
-    color: white;
-    margin-left: 540px;
+  background-color: black;
+  color: white;
+  margin-left: 425px;
 }
 
 #cor2 {
-    background-color: red;
+  background-color: red;
 }
 
 #cor3 {
-    background-color: blue;
+  background-color: blue;
 }
 
 #cor4 {
-    background-color: green;
+  background-color: green;
 }
 
 .color {
-    border: 1px black solid;
-    display: inline-block;
-    padding: 50px;
+  border: 1px black solid;
+  display: inline-block;
+  padding: 50px;
 }
 
 #button-random-color {
-    background-color: grey;
-    margin-left: 46%;
-    margin-right: 46%;
-    text-align: center;
+  background-color: grey;
+  margin-left: 46%;
+  margin-right: 46%;
+  text-align: center;
 }
