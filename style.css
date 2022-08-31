@@ -32,3 +32,15 @@
   margin-right: 46%;
   text-align: center;
 }
+
+.pixel{
+    padding: 50px;
+    background-color: white;
+    display: inline-block;
+    border: 1px black solid;
+    height: 40px;
+    width: 40px;
+}
+.primeiroPixel{
+    margin-left: 365px;
+}
