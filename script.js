@@ -20,7 +20,10 @@ butao.addEventListener('click', recebeClick);
 
 // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
 window.onload = function () {
-    let aqui = localStorage.getItem('colorPalette').split("@");
+    let aqui = "";
+    if(localStorage.length != 0){
+     aqui = localStorage.getItem('colorPalette').split("@");
+    }
     let savedCor2 = aqui[0];
     let savedCor3 = aqui[1];
     let savedCor4 = aqui[2];
