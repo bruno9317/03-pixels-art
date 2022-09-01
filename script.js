@@ -1,5 +1,9 @@
 // Botão para gerar a paleta de cores aleatoriamente e salva no localStorage
 function recebeClick() {
+
+  let local0 = document.getElementById('cor1');
+  local0.style.backgroundColor = "black";
+
   const local1 = document.getElementById('cor2');
   local1.style.backgroundColor = '#' + Math.floor(Math.random() * 1000000);
 
@@ -22,6 +26,7 @@ butao.addEventListener('click', recebeClick);
 
 // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
 window.onload = function () {
+    document.getElementById('cor1').style.backgroundColor = "black";
     let aqui = "";
     if(localStorage.length != 0){
      aqui = localStorage.getItem('colorPalette').split("@");
@@ -35,12 +40,18 @@ window.onload = function () {
 }
 // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
 
+
+// designa a classe "selected" a cor clicada e tira a classe da cor anterior
 document.getElementById('cor1').classList.add("selected");
+let tesste;
 
 function recebeClick2(e) {
     document.getElementsByClassName('selected')[0].classList.remove('selected');
     e.target.classList.add("selected");
+    // document.getElementsByClassName('selected')[0].style.backgroundColor;
 }
+// designa a classe "selected" a cor clicada e tira a classe da cor anterior
+
 
 // transforma a paleta de cores em botoes
 function criaButao(){
@@ -53,3 +64,17 @@ for(let index = 0; index < listaClassColor.length; index += 1){
 }
 criaButao();
 // transforma a paleta de cores em botoes
+
+function recebeClick3(e){
+    e.target.style.backgroundColor = document.getElementsByClassName('selected')[0].style.backgroundColor;
+}
+
+function criaButao2() {
+    let listaDePixel = document.getElementsByClassName('pixel');
+    let botoesPixel = [];
+    for(let index = 0; index < listaDePixel.length; index += 1){
+        botoesPixel[index] = listaDePixel[index];
+        botoesPixel[index].addEventListener('click', recebeClick3);
+    }
+}
+criaButao2();
