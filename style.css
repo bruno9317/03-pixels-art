@@ -43,3 +43,11 @@
 .primeiroPixel{
     margin-left: 270px;
 }
+
+#clear-board {
+  background-color: grey;
+  margin-left: 48%;
+  margin-right: 48%;
+  margin-top: 10px;
+  text-align: center;
+}

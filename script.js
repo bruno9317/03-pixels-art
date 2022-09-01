@@ -21,9 +21,6 @@ const butao = document.getElementById('button-random-color');
 butao.addEventListener('click', recebeClick);
 // Botão para gerar a paleta de cores aleatoriamente e salva no localStorage
 
-
-
-
 // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
 window.onload = function () {
     document.getElementById('cor1').style.backgroundColor = "black";
@@ -43,7 +40,6 @@ window.onload = function () {
 
 // designa a classe "selected" a cor clicada e tira a classe da cor anterior
 document.getElementById('cor1').classList.add("selected");
-let tesste;
 
 function recebeClick2(e) {
     document.getElementsByClassName('selected')[0].classList.remove('selected');
@@ -51,7 +47,6 @@ function recebeClick2(e) {
     // document.getElementsByClassName('selected')[0].style.backgroundColor;
 }
 // designa a classe "selected" a cor clicada e tira a classe da cor anterior
-
 
 // transforma a paleta de cores em botoes
 function criaButao(){
@@ -65,10 +60,13 @@ for(let index = 0; index < listaClassColor.length; index += 1){
 criaButao();
 // transforma a paleta de cores em botoes
 
+// o pixel que for clicado recebe backgroundColor atual do elemento na class 'selected'
 function recebeClick3(e){
     e.target.style.backgroundColor = document.getElementsByClassName('selected')[0].style.backgroundColor;
 }
+// o pixel que for clicado recebe backgroundColor atual do elemento na class 'selected'
 
+// transforma os pixels em butao
 function criaButao2() {
     let listaDePixel = document.getElementsByClassName('pixel');
     let botoesPixel = [];
@@ -78,3 +76,14 @@ function criaButao2() {
     }
 }
 criaButao2();
+// transforma os pixels em butao
+
+// cria o botao 'Limpar' que chama uma função que deixa todos os pixels brnacos
+const butaoLimpa = document.getElementById('clear-board');
+butaoLimpa.addEventListener('click', function () {
+    const listaDePixels = document.getElementsByClassName('pixel');
+    for(let index = 0; index < listaDePixels.length; index += 1){
+        listaDePixels[index].style.backgroundColor = 'white';
+    }
+})
+// cria o botao 'Limpar' que chama uma função que deixa todos os pixels brnacos
