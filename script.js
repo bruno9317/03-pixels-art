@@ -18,6 +18,8 @@ butao.addEventListener('click', recebeClick);
 // Botão para gerar a paleta de cores aleatoriamente e salva no localStorage
 
 
+
+
 // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
 window.onload = function () {
     let aqui = "";
@@ -33,3 +35,21 @@ window.onload = function () {
 }
 // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
 
+document.getElementById('cor1').classList.add("selected");
+
+function recebeClick2(e) {
+    document.getElementsByClassName('selected')[0].classList.remove('selected');
+    e.target.classList.add("selected");
+}
+
+// transforma a paleta de cores em botoes
+function criaButao(){
+let listaClassColor = document.getElementsByClassName('color');
+let butao2 = [];
+for(let index = 0; index < listaClassColor.length; index += 1){
+    butao2[index] = listaClassColor[index];
+    butao2[index].addEventListener('click', recebeClick2);
+}
+}
+criaButao();
+// transforma a paleta de cores em botoes
