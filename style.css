@@ -3,7 +3,7 @@
 }
 
 #cor1 {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   margin-left: 425px;
 }
 
@@ -34,7 +34,7 @@
 
 .pixel{
     padding: 50px;
-    background-color: white;
+    background-color: #ffffff;
     display: inline-block;
     border: 1px black solid;
     height: 40px;
