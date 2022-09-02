@@ -101,7 +101,9 @@ window.onload = function () {
     document.getElementById('cor4').style.backgroundColor = "rgb(0, 128, 0";
     let aqui = "";
     if(localStorage.length != 0){
-     aqui = localStorage.getItem('colorPalette').split("@");
+        if(localStorage.getItem('colorPalette') !== null){
+        aqui = localStorage.getItem('colorPalette').split("@");
+        }
     }
     let savedCor2 = aqui[0];
     let savedCor3 = aqui[1];
@@ -122,7 +124,7 @@ window.onload = function () {
         for(let index = 0; index < listaDePixels.length; index += 1){
             listaDePixels[index].style.backgroundColor = aqui2[index];
         }
-        }else if(localStorage.getItem('pixelBoard') == null){
+    }else if(localStorage.getItem('pixelBoard') == null){
         let listaDePixels2 = document.getElementsByClassName('pixel');
         for(let index = 0; index < listaDePixels2.length; index += 1){
             listaDePixels2[index].style.backgroundColor = '#ffffff';
