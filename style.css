@@ -42,6 +42,7 @@
 }
 .primeiroPixel{
     margin-left: 270px;
+    margin-top: ;
 }
 
 #clear-board {
@@ -50,4 +51,14 @@
   margin-right: 48%;
   margin-top: 10px;
   text-align: center;
+}
+#board-size, #generate-board{
+  display: inline-block;
+}
+#board-size{
+  margin-left: 42%;
+  margin-top: 5px;
+}
+#generate-board{
+  background-color: gray;
 }
