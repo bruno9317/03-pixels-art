@@ -62,3 +62,7 @@
 #generate-board{
   background-color: gray;
 }
+#pixel-board, ul{
+  margin-bottom: 0px;
+  margin-top: 0px;
+}

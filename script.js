@@ -63,7 +63,6 @@ function recebeClick() {
     // cria os il
     for(let index2 = 0; index2 < localSection1.children.length; index2 += 1){
         for(let index = 0; index < localSection1.children.length; index += 1){
-            console.log('entrou')
             let criaIl = document.createElement('il');
             localSection1.children[index].appendChild(criaIl);
         }
@@ -97,14 +96,18 @@ document.body.appendChild(elementoSection);
 let localSection1 = document.getElementById('pixel-board');
 let escolha = document.getElementById('board-size');
 let inteiro = parseInt(escolha.value);
-console.log(typeof inteiro);
+if(inteiro > 0){
+    if (inteiro < 5){
+        inteiro = 5;
+    }else if(inteiro > 50){
+        inteiro = 50;
+    }
 // cria os ul que vai coonter os li
 // for(let index = 0; index < document.getElementById('pixel-board'); index += 1){
 //     document.getElementById('pixel-board').removeChild();
 // }
     console.log(inteiro)
     for(let index = 0; index < inteiro; index += 1){
-        console.log('entrou for ul')
         let criaUl = document.createElement('ul');
         localSection1.appendChild(criaUl);
     }
@@ -112,11 +115,11 @@ console.log(typeof inteiro);
 // cria os il
 for(let index2 = 0; index2 < inteiro; index2 += 1){
     for(let index = 0; index < inteiro; index += 1){
-        console.log('entrou for li')
         let criaIl = document.createElement('il');
         localSection1.children[index].appendChild(criaIl);
     }
 }
+
 // atribui a classe "pixel" para todos os li
 let listaUl = document.getElementById('pixel-board').children;
 for(let index = 0; index < localSection1.children.length; index += 1){
@@ -125,6 +128,10 @@ for(let index = 0; index < localSection1.children.length; index += 1){
     }
     listaUl[index].children[0].classList.add("primeiroPixel");
 }
+}else{
+    alert('Board inválido!');
+}
+localStorage.setItem('boardSize', inteiro);
 })
 
 
@@ -137,7 +144,7 @@ function recebeClick3(e){
         aqui[index] = listaDePixels2[index].style.backgroundColor + "@";
     }
     localStorage.setItem('pixelBoard', aqui);
-    // console.log(pinta);
+    // console.log(pinta);   
 }
 // o pixel que for clicado recebe backgroundColor atual do elemento na class 'selected'e é salva no storage
 
@@ -176,6 +183,54 @@ butaoLimpa.addEventListener('click', function () {
 })
 // cria o botao 'Limpar' que chama uma função que deixa todos os pixels bracos
 
+document.onload = function (){
+    function salvaPixels(){
+        if(document.getElementById('pixel-board') !== null){
+            document.getElementById('pixel-board').remove();
+            }
+  // cria a section que vai conter todos os pixels
+  let elementoSection = document.createElement("section");
+  
+  elementoSection.id = 'pixel-board';
+  
+  document.body.appendChild(elementoSection);
+  
+  // cria os ul que vai coonter os li
+  
+  let localSection1 = document.getElementById('pixel-board');
+  let escolha = document.getElementById('board-size');
+  let inteiro = localStorage.getItem('boardSize');
+
+  // cria os ul que vai coonter os li
+  // for(let index = 0; index < document.getElementById('pixel-board'); index += 1){
+  //     document.getElementById('pixel-board').removeChild();
+  // }
+      console.log(inteiro)
+      for(let index = 0; index < inteiro; index += 1){
+          let criaUl = document.createElement('ul');
+          localSection1.appendChild(criaUl);
+      }
+  
+  // cria os il
+  for(let index2 = 0; index2 < inteiro; index2 += 1){
+      for(let index = 0; index < inteiro; index += 1){
+          let criaIl = document.createElement('il');
+          localSection1.children[index].appendChild(criaIl);
+      }
+  }
+  
+  // atribui a classe "pixel" para todos os li
+  let listaUl = document.getElementById('pixel-board').children;
+  for(let index = 0; index < localSection1.children.length; index += 1){
+      for(let index2 = 0; index2 < localSection1.children.length; index2 += 1){
+      listaUl[index].children[index2].classList = 'pixel';
+      }
+      listaUl[index].children[0].classList.add("primeiroPixel");
+  }
+}
+salvaPixels();
+}
+
 window.onload = function () {
     // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
     document.getElementById('cor1').style.backgroundColor = "rgb(0, 0, 0";
@@ -195,6 +250,9 @@ window.onload = function () {
     document.getElementById('cor3').style.backgroundColor = savedCor3;
     document.getElementById('cor4').style.backgroundColor = savedCor4;
     // Função para carregar as cores que estavam na paleta quando a aba foi fechada pela ultima vez
+    criaButao();
+  // transforma a paleta de cores em botoes
+  
     
     // salva as cores dos pixels ao carregar a pagina
     if(localStorage.getItem('pixelBoard') !== null){
