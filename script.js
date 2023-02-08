@@ -151,7 +151,8 @@ function recebeClick3(e){
 // transforma os pixels em butao
 function criaButao2() {
     let listaDePixels2 = document.getElementsByClassName('pixel');
-    for(let index = 0; index < listaDePixels2.length; index += 1){
+    console.log(listaDePixels2);
+    for (let index = 0; index < listaDePixels2.length; index += 1) {
         listaDePixels2[index].style.backgroundColor = '#ffffff';
     }
 
